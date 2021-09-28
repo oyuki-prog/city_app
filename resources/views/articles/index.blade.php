@@ -11,7 +11,7 @@
     <h1>記事一覧</h1>
     <ul>
         @foreach ($articles as $article)
-            <li><a href="articles/{{ $article->id }}">{{ $article->title }}</a></li>
+            <li><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></li>
         @endforeach
     </ul>
     <input type="submit" value="新規記事投稿"  onclick="location.href='/articles/create'">

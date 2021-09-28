@@ -43,7 +43,7 @@ class ArticleController extends Controller
 
         $article->save();
 
-        return redirect('/asrticles');
+        return redirect('/articles');
     }
 
     /**
@@ -86,7 +86,7 @@ class ArticleController extends Controller
 
         $article->save();
 
-        return redirect('/asrticles');
+        return redirect('/articles');
     }
 
     /**
@@ -100,6 +100,6 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $article->delete();
 
-        return view('/articles');
+        return redirect('/articles');
     }
 }
