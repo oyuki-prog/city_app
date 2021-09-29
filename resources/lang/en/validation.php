@@ -155,6 +155,9 @@ return [
 
     'attributes' => [
         'title' => 'タイトル',
+        'prefecture' => '県',
+        'cities' => '市町',
+        'tag' => 'タグ',
         'body' => '本文'
     ],
 

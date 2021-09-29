@@ -31,6 +31,16 @@
             <input type="text" name="title" value="{{ old('title', $article->title) }}">
         </p>
         <p>
+            <label for="prefecture">県</label>
+            <input type="text" name="prefecture" value="{{ old('prefecture', $article->prefecture) }}">
+            <label for="cities">市町</label>
+            <input type="text" name="cities" value="{{ old('cities', $article->cities) }}">
+        </p>
+        <p>
+            <label for="tag">タグ</label>
+            <input type="text" name="tag" value="{{ old('tag', $article->tag) }}">
+        </p>
+        <p>
             <label for="body">本文</label>
             <textarea name="body">{{ old('body', $article->body) }}</textarea>
         </p>

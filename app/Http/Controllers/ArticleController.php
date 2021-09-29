@@ -40,6 +40,9 @@ class ArticleController extends Controller
 
         $article->title = $request->title;
         $article->body = $request->body;
+        $article->prefecture = $request->prefecture;
+        $article->cities = $request->cities;
+        $article->tag = $request->tag;
 
         $article->save();
 
@@ -83,6 +86,9 @@ class ArticleController extends Controller
 
         $article->title = $request->title;
         $article->body = $request->body;
+        $article->prefecture = $request->prefecture;
+        $article->cities = $request->cities;
+        $article->tag = $request->tag;
 
         $article->save();
 

@@ -11,7 +11,12 @@
 <body>
     <h1>記事詳細</h1>
     <P>タイトル:{{ $article->title }}</P>
-    <p>{{ $article->body }}</p>
+    <p>
+        県:{{ $article->prefecture }}
+        市町:{{ $article->cities }}
+    </p>
+    <p>タグ:{{ $article->tag }}</p>
+    <p>本文:{{ $article->body }}</p>
 
     <div class="button-group">
         <input type="button" value="記事一覧へ戻る" onclick="location.href='/articles'">

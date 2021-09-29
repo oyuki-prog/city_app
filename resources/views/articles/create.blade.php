@@ -28,6 +28,16 @@
             <input type="text" name="title" value="{{ old('title') }}">
         </p>
         <p>
+            <label for="prefecture">県</label>
+            <input type="text" name="prefecture" value="{{ old('prefecture') }}">
+            <label for="cities">市町</label>
+            <input type="text" name="cities" value="{{ old('cities') }}">
+        </p>
+        <p>
+            <label for="tag">タグ</label>
+            <input type="text" name="tag" value="{{ old('tag') }}">
+        </p>
+        <p>
             <label for="body">本文</label>
             <textarea name="body"></textarea>
         </p>
