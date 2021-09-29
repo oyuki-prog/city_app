@@ -153,6 +153,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'タイトル',
+        'prefecture' => '県',
+        'cities' => '市町村',
+        'tag' => 'タグ',
+        'body' => '本文'
+    ],
 
 ];
