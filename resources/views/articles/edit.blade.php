@@ -33,7 +33,7 @@
         <p>
             <label for="prefecture">県</label>
             <input type="text" name="prefecture" value="{{ old('prefecture', $article->prefecture) }}">
-            <label for="cities">市町</label>
+            <label for="cities">市町村</label>
             <input type="text" name="cities" value="{{ old('cities', $article->cities) }}">
         </p>
         <p>

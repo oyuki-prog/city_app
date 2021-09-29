@@ -13,7 +13,7 @@
     <P>タイトル:{{ $article->title }}</P>
     <p>
         県:{{ $article->prefecture }}
-        市町:{{ $article->cities }}
+        市町村:{{ $article->cities }}
     </p>
     <p>タグ:{{ $article->tag }}</p>
     <p>本文:{{ $article->body }}</p>
