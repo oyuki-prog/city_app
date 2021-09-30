@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -15,7 +16,8 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return view('articles.index', compact('articles'));
+        $user = Article::with('user')->get();
+        return view('articles.index', compact('articles', 'user'));
     }
 
     /**
@@ -57,8 +59,10 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+        $user_id = Auth::id();
         $article = Article::find($id);
-        return view('articles.show', compact('article'));
+        $user = Article::with('user')->get();
+        return view('articles.show', compact('article', 'user_id' ,'user'));
     }
 
     /**
@@ -70,7 +74,13 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        return view('/articles.edit', compact('article'));
+        $user = Auth::user();
+
+        if ($user->id != $article->user_id) {
+            return redirect('/articles');
+        }
+
+        return view('/articles.edit', compact('article', 'user'));
     }
 
     /**

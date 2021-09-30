@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>街自慢:記事詳細</title>
-</head>
+@section('title', '住めば都 - ' . $article->title)
 
-<body>
-    <h1>記事詳細</h1>
-    <P>タイトル:{{ $article->title }}</P>
-    <p>
-        県:{{ $article->prefecture }}
-        市町村:{{ $article->cities }}
-    </p>
-    <p>タグ:{{ $article->tag }}</p>
-    <p>本文:{{ $article->body }}</p>
+@section('content')
+    <div class="container">
+        <a href="{{ route('user', ($user[$article->user_id - 1]->user->name)) }}">{{ ($user[$article->user_id - 1]->user->name) }}</a>による記事
+        <h1 class="title my-4">{{ $article->title }}</h1>
+        <p>
+            {{ $article->prefecture . '  ' }}
+            {{ $article->cities }}
+        </p>
+        <p>{{ $article->tag }}</p>
+        <p class="mt-5 mb-5">{{ $article->body }}</p>
 
-    <div class="button-group">
-        <input type="button" value="記事一覧へ戻る" onclick="location.href='/articles'">
-        <input type="button" value="記事を編集する" onclick="location.href='/articles/{{ $article->id }}/edit'">
-        <form action="/articles/{{ $article->id }}" method="post">
-            @csrf
-            @method('DELETE')
-            <input type="submit" value="記事を削除する" onclick="if(!confirm('本当に削除しますか？')){return false};">
-        </form>
+        <div class="button-group d-flex">
+            <button type="button" onclick="location.href='/articles'" class="btn btn-primary rounded-pill">記事一覧へ戻る</button>
+            @if ($article->user_id == $user_id)
+                <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-success rounded-pill ml-3">編集する</a>
+                <form action="{{ route('articles.destroy', $article->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="記事を削除する" onclick="if(!confirm('本当に削除しますか？')){return false};" class="btn btn-danger rounded-pill ml-3">
+                </form>
+            @endif
+        </div>
     </div>
-</body>
-
-</html>
+@endsection
