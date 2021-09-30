@@ -22,26 +22,26 @@
             @csrf
             @method('PATCH')
             <div class="form-group">
-                <label for="title">タイトル</label>
-                <input type="text" name="title" value="{{ old('title', $article->title) }}">
+                <label class="label" for="title">タイトル</label>
+                <input class="form" type="text" name="title" value="{{ old('title', $article->title) }}">
             </div>
             <div class="d-flex">
                 <div class="w-50 form-group">
-                    <label for="prefecture">県</label>
-                    <input type="text" name="prefecture" value="{{ old('prefecture', $article->prefecture) }}">
+                    <label class="label" for="prefecture">県</label>
+                    <input class="form" type="text" name="prefecture" value="{{ old('prefecture', $article->prefecture) }}">
                 </div>
                 <div class="w-50">
-                    <label for="cities">市町村</label>
-                    <input type="text" name="cities" value="{{ old('cities', $article->cities) }}">
+                    <label class="label" for="cities">市町村</label>
+                    <input class="form" type="text" name="cities" value="{{ old('cities', $article->cities) }}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="tag">タグ</label>
-                <input type="text" name="tag" value="{{ old('tag', $article->tag) }}">
+                <label class="label" for="tag">タグ</label>
+                <input class="form" type="text" name="tag" value="{{ old('tag', $article->tag) }}">
             </div>
             <div class="form-group">
-                <label for="body">本文</label>
-                <textarea name="body" rows="20">{{ old('body', $article->body) }}</textarea>
+                <label class="label" for="body">本文</label>
+                <textarea class="form" name="body" rows="20">{{ old('body', $article->body) }}</textarea>
             </div>
             <input type="submit" value="更新する" class="btn btn-success rounded-pill ml-auto d-block">
         </form>

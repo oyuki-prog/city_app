@@ -113,9 +113,15 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        $article = Article::find($id);
-        $article->delete();
 
+        $article = Article::find($id);
+        $user = Auth::user();
+
+        if ($user->id != $article->user_id) {
+            return back();
+        }
+
+        $article->delete();
         return redirect('/articles');
     }
 }
