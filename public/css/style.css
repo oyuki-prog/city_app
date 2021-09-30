@@ -36,7 +36,7 @@ p {
     margin-bottom: 1px;
 }
 
-label {
+.label {
     width: 100px;
     text-align: right;
     padding-right: 10px;
@@ -44,8 +44,7 @@ label {
     line-height: 45px;
 }
 
-input[type="text"],
-textarea {
+.form {
     width: calc(100% - 120px);
     padding: 8px;
 }
