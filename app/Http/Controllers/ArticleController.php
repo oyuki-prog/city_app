@@ -101,6 +101,7 @@ class ArticleController extends Controller
         $article->prefecture = $request->prefecture;
         $article->cities = $request->cities;
         $article->tag = $request->tag;
+        $article->user_id = $request->user_id;
 
         $article->save();
 
