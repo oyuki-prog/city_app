@@ -27,7 +27,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $user = Auth::user();
+        return view('articles.create',compact('user'));
     }
 
     /**
@@ -45,6 +46,7 @@ class ArticleController extends Controller
         $article->prefecture = $request->prefecture;
         $article->cities = $request->cities;
         $article->tag = $request->tag;
+        $article->user_id = $request->user_id;
 
         $article->save();
 

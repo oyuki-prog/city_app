@@ -41,6 +41,7 @@
                 <label class="label" for="body">本文</label>
                 <textarea class="form" name="body" rows="20">{{ old('body') }}</textarea>
             </div>
+            <input type="hidden" name="user_id" value="{{ $user->id }}">
             <input type="submit" value="投稿する" class="btn btn-success rounded-pill ml-auto d-block">
         </form>
     </div>
