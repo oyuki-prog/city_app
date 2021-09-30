@@ -12,7 +12,7 @@
                 <a href="{{ route('user', ($user[$article->user_id - 1]->user->name)) }}">{{ ($user[$article->user_id - 1]->user->name) }}</a>による記事
 
                 <a href="/articles/{{ $article->id }}" class="d-block title">{{ $article->title }}</a>
-                {{ $article->prefecture }} {{ $article->city }}
+                {{ $article->prefecture }} {{ $article->cities }}
             </div>
 
             @endforeach
