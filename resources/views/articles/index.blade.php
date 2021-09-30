@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>街自慢:記事一覧</title>
-</head>
+@extends('layouts.app')
 
-<body>
-    <h1>記事一覧</h1>
-    <ul>
-        @foreach ($articles as $article)
-            <li><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></li>
-        @endforeach
-    </ul>
-    <input type="submit" value="新規記事投稿"  onclick="location.href='/articles/create'">
-</body>
-</html>
+@section('title', '住めば都 - 記事投稿')
+
+@section('content')
+    <div class="container">
+        <h1 class="head">新着記事一覧</h1>
+        <div class="articles-block">
+
+            @foreach ($articles as $article)
+            <div class="article-block pt-2 pb-2">
+                <a href="{{ route('user', ($user[$article->user_id - 1]->user->name)) }}">{{ ($user[$article->user_id - 1]->user->name) }}</a>による記事
+
+                <a href="/articles/{{ $article->id }}" class="d-block title">{{ $article->title }}</a>
+                {{ $article->prefecture }} {{ $article->cities }}
+            </div>
+
+            @endforeach
+        </div>
+        @if (Auth::check())
+            <button onclick="location.href='/articles/create'" class="btn btn-success rounded-pill mt-5">新規記事投稿</button>
+        @else
+            <button onclick="location.href='/login'" class="btn btn-success rounded-pill mt-5">新規記事投稿</button>
+        @endif
+    </div>
+@endsection

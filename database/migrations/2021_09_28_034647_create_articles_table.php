@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->string('cities');
             $table->string('tag');
             $table->text('body');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

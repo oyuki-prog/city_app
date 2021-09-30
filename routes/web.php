@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::resource('/articles', App\Http\Controllers\ArticleController::class);
+Auth::routes();
+
+Route::get('/', [ArticleController::class, 'index']);
+
+Route::get('/articles', [ArticleController::class, 'create'])
+    ->middleware('auth')
+    ->name('articles.create');
+
+Route::get('/articles/{articles}/edit', [ArticleController::class, 'edit'])
+    ->middleware('auth')
+    ->name('articles.edit');
+
+Route::get('/home',[HomeController::class, 'index'])->name('home');
+Route::resource('/articles', ArticleController::class);
+
+Route::get('/user/{name}', [UserController::class, 'show'])->name('user');
